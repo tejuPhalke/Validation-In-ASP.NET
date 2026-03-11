@@ -1,0 +1,40 @@
+﻿@model validationmethod.Models.student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<style>
+    .t1 {
+        margin: auto;
+        margin-top: 50px;
+        width: 700px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        border: 2px solid black;
+    }
+</style>
+<body>
+    <div class="t1">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            @Html.LabelFor(m => m.Id) @Html.TextBoxFor(m => m.Id) @Html.ValidationMessageFor(m => m.Id, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m => m.Name) @Html.TextBoxFor(m => m.Name) @Html.ValidationMessageFor(m => m.Name, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m => m.Email) @Html.TextBoxFor(m => m.Email) @Html.ValidationMessageFor(m => m.Email, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m => m.Password) @Html.PasswordFor(m => m.Password) @Html.ValidationMessageFor(m => m.Password, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m => m.ConfirmPassword) @Html.PasswordFor(m => m.ConfirmPassword) @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m => m.VisitDate) @Html.EditorFor(m => m.VisitDate) @Html.ValidationMessageFor(m => m.VisitDate, "", new { style = "Color:red" })<br /><br />
+            @Html.LabelFor(m=>m._age) @Html.TextBoxFor(m=>m._age) @Html.ValidationMessageFor(m=>m._age)<br /><br />
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</body>
+</html>

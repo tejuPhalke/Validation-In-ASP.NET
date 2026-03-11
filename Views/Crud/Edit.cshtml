@@ -1,0 +1,69 @@
+﻿@model validationmethod.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <style>
+        .t1 {
+            align-content: center;
+            text-align: center;
+            width: 500px;
+            height: auto;
+            padding: 20px;
+            font-size: 25px;
+            margin: auto;
+            margin-top: 50px;
+            border: 2px solid black;
+        }
+
+        #button {
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            background-color: lightblue;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="t1">
+        <h2>Edit User</h2>
+        @using (Html.BeginForm("Update", "Crud", FormMethod.Post))
+        {
+            @Html.HiddenFor(x => x.Id)
+            <p>
+                @Html.LabelFor(x => x.name)
+                @Html.TextBoxFor(x => x.name) <br />
+                @Html.ValidationMessageFor(x => x.name)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.email)
+                @Html.TextBoxFor(x => x.email) <br />
+                @Html.ValidationMessageFor(x => x.email)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.password)
+                @Html.PasswordFor(x => x.password) <br />
+                @Html.ValidationMessageFor(x => x.password)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.Cpassword)
+                @Html.PasswordFor(x => x.Cpassword) <br />
+                @Html.ValidationMessageFor(x => x.Cpassword)
+            </p>
+            <p>
+                @Html.LabelFor(x => x.phone) 
+                @Html.TextBoxFor(x => x.phone) <br />
+                @Html.ValidationMessageFor(x => x.phone)
+            </p>
+            <input type="submit" id="button" value="Update" />
+        }
+    </div>
+</body>
+</html>
